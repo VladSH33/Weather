@@ -1,14 +1,14 @@
-import { IWeatherDetails } from "../../models/IWeatherDetails";
+import { WeatherResponse } from "../../types/IWeatherDetails";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { createAction } from '@reduxjs/toolkit';
 interface WeatherDetailsState {
-    details: IWeatherDetails[];
+    details: WeatherResponse | null;
     isLoading: boolean;
     error: string;
 }
 
 const initialState: WeatherDetailsState = {
-    details: [],
+    details: null,
     isLoading: false,
     error: ''
 }
@@ -21,20 +21,20 @@ export const weatherDetailsSlice = createSlice ({
             state.isLoading = true;
         },
 
-        weatherDetailsFetchingSuccess(state, action: PayloadAction<IWeatherDetails[]>) {
+        weatherDetailsFetchingSuccess(state, action: PayloadAction<WeatherResponse>) {
             state.isLoading = false;
             state.error = '';
-            state.details = action.payload
+            state.details = action.payload;
         },
 
-        weatherDetailsFetchingError(state, action) {
+        weatherDetailsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
-            function getErrorMessage(error: unknown) {
-                if (error instanceof Error) return error.message
-                return String(error)
-            }
+            state.error = action.payload;
         }
     }
 })
 
+export const { weatherDetailsFetching, weatherDetailsFetchingSuccess, weatherDetailsFetchingError } = weatherDetailsSlice.actions;
 export default weatherDetailsSlice.reducer;
+
+export const fetchWeatherDetails = createAction('weatherDetails/fetchWeatherDetails');
