@@ -1,0 +1,13 @@
+.parameters {
+    padding-top: 32px;
+    h1 {
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 40px;
+    }
+
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}

@@ -1,0 +1,33 @@
+.parameterCard {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: calc(25% - 20px);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(black, 0.2);
+    justify-content: left;
+    gap: 8px;
+    color: rgba(7, 42, 65, 0.5);
+    
+    &__title {
+        text-transform: uppercase;
+        font-weight: 600;
+
+    }
+
+    &__desc {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        font-size: 34px;
+        color: rgba(7, 42, 65, 0.8);
+        font-weight: 600;
+    }
+}
