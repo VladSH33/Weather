@@ -14,6 +14,7 @@
     "@types/react-redux": "^7.1.34",
     "@types/styled-components": "^5.1.34",
     "axios": "^1.7.8",
+    "gh-pages": "^6.2.0",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -29,11 +30,14 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://<VladSH33>.github.io/<Weather>",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
