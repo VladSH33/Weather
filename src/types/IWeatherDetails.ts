@@ -21,6 +21,7 @@ export interface HourlyUnits {
   surface_pressure: string;
   visibility: string;
   wind_speed_180m: string;
+  weather_code: string;
 }
 
 export interface HourlyData {
@@ -32,6 +33,7 @@ export interface HourlyData {
   surface_pressure: number[];
   visibility: number[];
   wind_speed_180m: number[];
+  weather_code: number[];
 }
 
 export interface DailyUnits {

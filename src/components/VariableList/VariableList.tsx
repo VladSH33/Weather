@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchWeatherDetails } from '../../store/reducers/WeatherDetailsSlice';
+import React from 'react';
 import { DailyData, HourlyData } from '../../types/IWeatherDetails'
-import WeatherVariableCard from '../WeatherVariableCard/WeatherVariableCard';
+import VariableCard from '../VariableCard/VariableCard';
 
-import './WeatherVariableList.scss'
+import './VariableList.style'
+import { Inner } from './VariableList.style';
 
 
 const usefullFields = {
@@ -24,25 +23,16 @@ const usefullFields = {
   } as { [key in keyof HourlyData]: string },
 };
 
-const WeatherVariableList = () => {
-    const dispatch = useAppDispatch();
-    const {details, isLoading, error} = useAppSelector(state => state.weatherDetailsReducer)
+type VariableListProps = {
+  hourly?: HourlyData;
+  daily?: DailyData;
+  index?: number;
+}
 
-    useEffect(() => {
-        dispatch(fetchWeatherDetails())
-    }, [ ])
-
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
-
-    const hourly = details?.hourly;
-    const daily = details?.daily;
+const VariableList: React.FC<VariableListProps> = ({hourly, daily, index}) => {
 
     return (
-        <div className='parameters'>
-            <h1>Weather Details</h1>
-
-            <div className="parameters__inner">
+            <Inner>
 
               {daily ? (
                 <>
@@ -50,9 +40,8 @@ const WeatherVariableList = () => {
                     .filter(([key]) => key !== 'time')
                     .map(([key, values]) => {
                         const label = usefullFields.dailyUsefullFields[key as keyof DailyData] || key;
-                        
                         return (
-                          <WeatherVariableCard
+                          <VariableCard
                             key={`${key}-${label}`}
                             label={label}
                             values={values[0]}
@@ -62,20 +51,19 @@ const WeatherVariableList = () => {
                   })}
                 </>
               ) : (
-              <h2>Нет данных для отображения</h2>
+              <></>
               )}
-
 
               {hourly ? (
                 <>
                     {Object.entries(hourly)
-                      .filter(([key]) => key !== 'time' && key !== 'temperature_2m')
+                      .filter(([key]) => key !== 'time' && key !== 'temperature_2m' && key !== 'weather_code')
                       .map(([key, values]) => {
                         if (Array.isArray(values)) {
                           const label = usefullFields.HourlyUsefullFields[key as keyof HourlyData] || key;
-                          const value = values[0]
+                          const value = values[index ?? 0]
                           return (
-                            <WeatherVariableCard
+                            <VariableCard
                               key={`${key}-${label}`}
                               label={label}
                               values={value}
@@ -86,14 +74,11 @@ const WeatherVariableList = () => {
                       })}
                   </>
               ) : (
-                <h2>Нет данных для отображения</h2>
+                <></>
               )}
 
-            </div>
-
-
-        </div>
+            </Inner>
     );
 };
 
-export default WeatherVariableList;
+export default VariableList;
