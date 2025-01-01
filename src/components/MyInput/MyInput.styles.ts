@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 export const Input = styled.input`
   padding: 1rem;
   font-size: clamp(18px, 2.5vw, 2rem);
-  border: none;
   border-bottom: 2px solid rgba(255, 255, 255, 0.6);
   width: 100%;
   background-color: rgba(255, 255, 255, 0);

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     align-items: start;
     background-color: rgba(255, 255, 255, 0.85);
     width: calc(25% - 20px);
-    min-width: 16rem;
+    min-width: 19rem;
     padding: 2rem 2rem;
     box-sizing: border-box;
     text-align: center;
