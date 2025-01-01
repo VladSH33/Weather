@@ -17,10 +17,10 @@ export const Day = styled.div`
     }
 
     .toDay {
-        font-size: 2rem;
+        font-size: clamp(12px, 2vw, 2.5rem);
     }
     .date {
-        font-size: 1.5rem;
+        font-size: clamp(8px, 1vw, 2rem);
     }
 
     img {
@@ -40,9 +40,10 @@ export const Locaton = styled.div`
     display: flex;
     text-align: center;
     color: rgba(255, 255, 255);
-    font-size: 2rem;
+    font-size: clamp(12px, 2vw, 2.5rem);
     gap: 1rem;
     justify-content: center;
+    margin-right: 20px;
 
     img {
         width: 1em;

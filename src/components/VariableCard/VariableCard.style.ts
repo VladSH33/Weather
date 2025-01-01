@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     align-items: start;
     background-color: rgba(255, 255, 255, 0.85);
     width: calc(25% - 20px);
-    min-width: 23rem;
+    min-width: 16rem;
     padding: 2rem 2rem;
     box-sizing: border-box;
     text-align: center;
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: clamp(7px, 1.5vw, 2.5rem);
 `;
 
 export const Direction = styled.div`
@@ -31,12 +31,12 @@ export const Direction = styled.div`
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    font-size: 3rem;
+    font-size: clamp(8px, 2vw, 2.5rem);
     color: rgba(7, 42, 65, 0.8);
     font-weight: 600;
 
     img {
-        width: 5rem;
-        height: 5rem;
+        width: clamp(12px, 3vw, 4rem);
+        height: clamp(12px, 3vw, 4rem);
     }
 `;

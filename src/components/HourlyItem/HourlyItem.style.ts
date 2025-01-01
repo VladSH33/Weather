@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const Hour = styled.div`
     color: rgba(255, 255, 255, 0.85);
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(10px, 2vw, 3rem);
 `;
 
 export const WeatherTemp = styled.div`
@@ -39,6 +39,6 @@ export const WeatherTemp = styled.div`
         .temp {
             color: #FFFFFF99;
             text-align: center;
-            font-size: 2rem;
+            font-size: clamp(8px, 1.8vw, 3rem);
         }
 `;

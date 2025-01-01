@@ -16,9 +16,9 @@ const unitMeasurement: { [key: string]: string } = {
   'humidity': '%',
   'feels like': '°',
   'precipitation': '%',
-  'pressure': 'hPa',
-  'visibility': 'km',
-  'wind': 'km/h',
+  'pressure': ' hPa',
+  'visibility': ' km',
+  'wind': ' km/h',
   'sunrise': 'am',
   'sunset': 'pm',
 };

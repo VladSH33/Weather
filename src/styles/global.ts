@@ -2,19 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-  @font-face {
-  font-family: 'MyCustomFont';
-  src: url('/fonts/HelveticaNeue-Medium.otf') format('opentype'),
-  url('/fonts/HelveticaNeue-Medium.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('${process.env.PUBLIC_URL}/fonts/HelveticaNeue-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
   html {
     font-size: 12px;
 
     @media (max-width: 1000px) {
-      font-size: 10px;
     }
     @media (max-width: 750px) {
       font-size: 8px;
@@ -53,9 +51,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: clamp(14px, 3vw, 4rem);
     color: rgba(255, 255, 255, 0.85);
-    margin: 30px 0;
+    margin: 5rem 0;
   }
 `;
 

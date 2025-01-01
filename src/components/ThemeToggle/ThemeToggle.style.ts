@@ -2,15 +2,14 @@ import styled from 'styled-components';
     
 export const Wrapper = styled.div`
     display: flex;
-    justify-content: center;
     flex-direction: column;
     gap: 1rem;
-    width: 10%;
+    align-items: center;
 `;
 
 export const Title = styled.div`
     color: rgba(255, 255, 255, 0.85);
-    font-size: 1.5rem;
+    font-size: clamp(14px, 2.5vw, 2rem);
 `;
 
 export const Label = styled.label`
@@ -23,31 +22,48 @@ export const Label = styled.label`
     }
     
     .slider {
-        width: 4rem;
-        height: 2rem;
+        width: 50px;
+        height: 25px;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 25px;
         position: relative;
         transition: background-color 0.3s ease;
 
+        @media (max-width: 1000px) {
+            width: 30px;
+            height: 15px;
+        }
+
         &::before {
             content: "";
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 18px;
+            height: 18px;
             background-color: white;
             border-radius: 50%;
             position: absolute;
-            top: 2px;
-            left: 2px;
+            top: 3.5px;
+            left: 5px;
             transition: transform 0.3s ease;
+
+            @media (max-width: 1000px) {
+                width: 12px;
+                height: 12px;
+
+                top: 1.6px;
+                left: 3px;
+            }
         }
     }
 
     input:checked + .slider {
-        background-color: #fffb2cb8;
+        background-color: #20D1BC;
 
         &::before {
-            transform: translateX(2rem);
+            transform: translateX(24px);
+
+            @media (max-width: 1000px) {
+                transform: translateX(12px);
+            }
         }
     }
 `;

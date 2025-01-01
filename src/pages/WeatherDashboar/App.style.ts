@@ -1,15 +1,18 @@
 import styled from 'styled-components'; 
 
 export const Container = styled.div`
-  max-width: 1240px;
+  width: 90%;
+  max-width: 1200px;
+  padding: 0 1rem;
   margin: 0 auto;
-  padding: 0 2rem;
 `;
 
 export const Header = styled.div`
-  margin: 4rem 0;
   display: flex;
+  width: 100%;
+  margin: 4rem 0;
   justify-content: space-between; 
+  align-items: center;
   gap: 2rem;
 
   .searchCity {
@@ -20,20 +23,21 @@ export const Header = styled.div`
 export const FirstSection = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap; /* Позволяет элементам переноситься */
-  gap: 1rem; /* Добавляет расстояние между элементами */
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: space-between;
 
   @media (max-width: 1000px) {
-    flex-direction: column; /* Элементы будут располагаться вертикально при малой ширине */
+    flex-direction: column;
+    gap: 4rem;
   }
 `;
 
 export const Button = styled.button`
   display: flex;
   max-height: 4rem;
-  padding: 0.5rem 4rem;
-  font-size: 2rem;
+  padding: 2rem 4rem;
+  font-size: clamp(10px, 2vw, 2rem);
   border-radius: 30px;
   border: none;
   gap: 0.5rem;
