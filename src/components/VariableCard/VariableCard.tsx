@@ -1,16 +1,15 @@
 import React from 'react';
 import { Wrapper, Direction, Title } from './VariableCard.style';
 
-
 const imageMap: { [key: string]: string } = {
-  'humidity': "../../icons/humidity.svg",
-  'feels like': '../../icons/feels_like.svg',
-  'precipitation': '../../icons/precipitation.svg',
-  'pressure': '../../icons/pressure.svg',
-  'visibility': '../../icons/visibility.svg',
-  'wind': '../../icons/wind.svg',
-  'sunrise': '../../icons/sunrise.svg',
-  'sunset': '../../icons/sunset.svg',
+  'humidity': `${process.env.PUBLIC_URL}/icons/humidity.svg`,
+  'feels like': `${process.env.PUBLIC_URL}/icons/feels_like.svg`,
+  'precipitation': `${process.env.PUBLIC_URL}/icons/precipitation.svg`,
+  'pressure': `${process.env.PUBLIC_URL}/icons/pressure.svg`,
+  'visibility': `${process.env.PUBLIC_URL}/icons/visibility.svg`,
+  'wind': `${process.env.PUBLIC_URL}/icons/wind.svg`,
+  'sunrise': `${process.env.PUBLIC_URL}/icons/sunrise.svg`,
+  'sunset': `${process.env.PUBLIC_URL}/icons/sunset.svg`,
 };
 
 const unitMeasurement: { [key: string]: string } = {

@@ -30,7 +30,7 @@ const InputWithButton: React.FC<InputWithButtonProps> = ({ onSubmit, value }) =>
         onKeyPress={handleKeyPress}
         placeholder="City or district"
       />
-      <Img src="../../icons/search.svg" alt="search" />
+      <Img src={`${process.env.PUBLIC_URL}/icons/search.svg`} alt="search" />
     </Wrapper>
   );
 };

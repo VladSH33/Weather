@@ -3,15 +3,15 @@ import { Wrapper, Hour, WeatherTemp } from './HourlyItem.style';
 
 const getImageSrc = (weatherCode: number): string => {
     if ([0, 1].includes(weatherCode)) {
-      return "../../icons/sun.svg";
+      return `${process.env.PUBLIC_URL}/icons/sun.svg`;
     }
     if ([71, 73, 75, 77, 66, 67, 85, 86].includes(weatherCode)) {
-      return "../../icons/snow.svg";
+      return `${process.env.PUBLIC_URL}/icons/snow.svg`;
     }
     if ([2, 3, 45, 48, 51, 53, 55, 56, 57, 61, 63, 65, 80, 81, 82].includes(weatherCode)) {
-      return "../../icons/cloud.svg";
+      return `${process.env.PUBLIC_URL}/icons/cloud.svg`;
     }
-    return "../../icons/e.svg";
+    return `${process.env.PUBLIC_URL}/icons/e.svg`;
   };
 
 
