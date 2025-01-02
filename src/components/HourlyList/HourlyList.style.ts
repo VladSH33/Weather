@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     display: flex;
     gap: 1.5rem;
-    min-width: 700px; /* Минимальная ширина для слайдера */
-    max-width: 70%; /* Максимальная ширина */
+    min-width: 700px;
+    max-width: 70%;
     justify-content: right;
 
     .slick-slider {
@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
     }
 
     @media (max-width: 1000px) {
-        max-width: 85%;/* На маленьких экранах слайдер занимает всю ширину */
-        justify-content: center; /* Центрируем слайдер */
+        max-width: 85%;
+        justify-content: center;
         margin-left: 15px;
     }
 

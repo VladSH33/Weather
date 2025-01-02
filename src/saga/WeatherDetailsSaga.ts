@@ -87,7 +87,6 @@ const fetchCoordinatesData = async (city: string): Promise<CoordinatesResponse> 
 
 function* fetchCoordinatesWorker(action: ReturnType<typeof fetchCoordinates>) {
     try {
-        // yield put(coordinatesStartFetching());
         const coordinatesData: CoordinatesResponse = yield call(fetchCoordinatesData, action.payload.city);
         yield put(coordinatesStartFetchingSuccess(coordinatesData));
     } catch (error: any) {

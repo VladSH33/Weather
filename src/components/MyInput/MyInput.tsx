@@ -17,7 +17,7 @@ const InputWithButton: React.FC<InputWithButtonProps> = ({ onSubmit, value }) =>
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      onSubmit(inputValue); // Также вызываем функцию, если нажата клавиша Enter
+      onSubmit(inputValue);
     }
   };
 
