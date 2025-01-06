@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     gap: 15px;
     width: 7rem;
 `;
-    
 
 export const Hour = styled.div`
     color: rgba(255, 255, 255, 0.85);

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import MySelectItem from './MySelectItem/MySelectItem';
-import { Ul } from './MySelect.style'
+import SelectItem from './SelectItem/SelectItem';
+import { Ul } from './SelectCity.style'
 
-type SelectOption = {
+type SelectCityOption = {
     id: string;
     coordinates: {
       lat: number;
@@ -12,13 +12,12 @@ type SelectOption = {
     [key: string]: any;
 }
 
-type SelectWithCallbackProps = {
-    options: SelectOption[];
+type SelectCityProps = {
+    options: SelectCityOption[];
     onOptionSelect: (option: { lon: number; lat: number }, city: string) => void;
 }
-  
 
-const MySelect: React.FC<SelectWithCallbackProps> = ({ options, onOptionSelect }) => {
+const SelectCity: React.FC<SelectCityProps> = ({ options, onOptionSelect }) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -31,14 +30,14 @@ const MySelect: React.FC<SelectWithCallbackProps> = ({ options, onOptionSelect }
             e.preventDefault();
             setActiveIndex((prevIndex) => (prevIndex + 1) % options.length);
             break;
-  
+
           case 'ArrowUp':
             e.preventDefault();
             setActiveIndex((prevIndex) =>
               prevIndex - 1 < 0 ? options.length - 1 : prevIndex - 1
             );
             break;
-  
+
           case 'Enter':
             e.preventDefault();
             if (options[activeIndex]) {
@@ -64,26 +63,26 @@ const MySelect: React.FC<SelectWithCallbackProps> = ({ options, onOptionSelect }
     return (
         <Ul>
           {options.length > 0 ? (
-                options.map((city, index) => (
-                    <MySelectItem
-                        key={city.id}
-                        cityName={city.name}
-                        coordinates={city.coordinates}
-                        onOptionSelect={onOptionSelect}
-                        isActive={index === activeIndex}
-                    />
-                ))
+              options.map((city, index) => (
+                  <SelectItem
+                      key={city.id}
+                      cityName={city.name}
+                      coordinates={city.coordinates}
+                      onOptionSelect={onOptionSelect}
+                      isActive={index === activeIndex}
+                  />
+              ))
             ) : (
-                <MySelectItem
-                    key="not-found"
-                    cityName="City not found"
-                    coordinates={{ lat: 0, lon: 0 }}
-                    onOptionSelect={() => {}}
-                    isActive={false}
-                />
-            )}
+              <SelectItem
+                  key="not-found"
+                  cityName="City not found"
+                  coordinates={{ lat: 0, lon: 0 }}
+                  onOptionSelect={() => {}}
+                  isActive={false}
+              />
+          )}
         </Ul>
     );
 };
 
-export default MySelect;
+export default SelectCity;

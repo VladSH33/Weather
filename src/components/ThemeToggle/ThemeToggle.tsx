@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Wrapper, Label, Title } from './ThemeToggle.style';
 
 type ThemeToggleProps = {
@@ -8,7 +7,6 @@ type ThemeToggleProps = {
 };
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ toggleTheme, theme }) => {
-
   return (
     <Wrapper>
       <Title>Theme</Title>

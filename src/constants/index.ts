@@ -1,0 +1,4 @@
+export const THEME_LOCAL_STORAGE_KEY = 'theme';
+export const DEFAULT_CITY_KALINIGRAD_LON = 20.498322;
+export const DEFAULT_CITY_KALINIGRAD_LAT = 54.701485;
+export const DEFAULT_NAME_CITY_KALINIGRAD = 'Калининград';

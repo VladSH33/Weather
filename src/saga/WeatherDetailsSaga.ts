@@ -32,12 +32,13 @@ const simulateUnauthorizedError = (): Promise<never> => {
   };
 
 const fetchWeatherData = async (unit: string, lon: number, lat:number): Promise<WeatherResponse> => {
-    const baseURL = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,surface_pressure,visibility,wind_speed_180m,weather_code&daily=sunrise,sunset&forecast_days=1`;
+    const headURL = process.env.REACT_APP_METEO_API_URL;
+    const bodyURL = `forecast?latitude=${lat}&longitude=${lon}&&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,surface_pressure,visibility,wind_speed_180m,weather_code&daily=sunrise,sunset&forecast_days=1`;
     const params = unit === 'celsius' 
         ? ''
         : '&temperature_unit=fahrenheit';
 
-    const response: AxiosResponse<WeatherResponse> = await axios.get(`${baseURL}${params}`);
+    const response: AxiosResponse<WeatherResponse> = await axios.get(`${headURL}${bodyURL}${params}`);
     return response.data;
 
     // return simulateUnauthorizedError();
@@ -65,13 +66,12 @@ function* handleUnauthorizedError<T>(fetchFn: (...args: any[]) => Promise<T>, ..
 }
 
 const fetchCoordinatesData = async (city: string): Promise<CoordinatesResponse> => {
-    const response: AxiosResponse<CoordinatesResponse> = await axios.get(`https://autocomplete.travelpayouts.com/places2?term=${city}&locale=ru&types[]=city`);
+    const response: AxiosResponse<CoordinatesResponse> = await axios.get(`${process.env.REACT_APP_AUTOCOMPLETE_API_URL}places2?term=${city}&locale=ru&types[]=city`);
     const limitedData = response.data.slice(0, 5);
     return limitedData;
-  };
+};
 
-
-  function* fetchWeatherDataWorker(action: ReturnType<typeof fetchWeatherDetails>) {
+function* fetchWeatherDataWorker(action: ReturnType<typeof fetchWeatherDetails>) {
     try {
         yield put(weatherDetailsFetching());
 
@@ -84,7 +84,6 @@ const fetchCoordinatesData = async (city: string): Promise<CoordinatesResponse> 
     }
 }
 
-
 function* fetchCoordinatesWorker(action: ReturnType<typeof fetchCoordinates>) {
     try {
         const coordinatesData: CoordinatesResponse = yield call(fetchCoordinatesData, action.payload.city);
@@ -92,8 +91,7 @@ function* fetchCoordinatesWorker(action: ReturnType<typeof fetchCoordinates>) {
     } catch (error: any) {
         yield put(coordinatesStartFetchingError(error.message));
     }
-  }
-
+}
 
 export function* weatherDetailsWatcher() {
     yield takeEvery(fetchWeatherDetails.type, fetchWeatherDataWorker);

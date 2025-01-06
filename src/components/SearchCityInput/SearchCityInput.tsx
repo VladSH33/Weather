@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Wrapper, Input, Img } from './MyInput.styles'
+import { Wrapper, Input } from './SearchCityInput.styles'
+import Icon from '../Icon/Icon'
 
-type InputWithButtonProps = {
+type InputProps = {
   onSubmit: (value: string) => void,
   value: string,
 }
 
-const InputWithButton: React.FC<InputWithButtonProps> = ({ onSubmit, value }) => {
+const SearchCityInput: React.FC<InputProps> = ({ onSubmit, value }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,9 +31,9 @@ const InputWithButton: React.FC<InputWithButtonProps> = ({ onSubmit, value }) =>
         onKeyPress={handleKeyPress}
         placeholder="City or district"
       />
-      <Img src={`${process.env.PUBLIC_URL}/icons/search.svg`} alt="search" />
+      <Icon nameIcon={'search'} width={'2.5rem'} height={'2.5rem'}/>
     </Wrapper>
   );
 };
 
-export default InputWithButton;
+export default SearchCityInput;

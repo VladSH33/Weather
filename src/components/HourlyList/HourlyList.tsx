@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import HourlyItem from '../HourlyItem/HourlyItem';
+import Error from '../Error/Error'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,14 +13,13 @@ type HourlyListProps = {
     times?: string[];
     temperatures?: number[];
     weatherCodes?: number[];
-    selectTime: (time: number) => void;
+    selectTimeWeather: (time: number) => void;
     index?: number;
     now: number;
     isLoading: boolean;
 }
 
-const HourlyList: React.FC<HourlyListProps> = ({ times, temperatures, weatherCodes, selectTime, now, isLoading }) => {
-
+const HourlyList: React.FC<HourlyListProps> = ({ times, temperatures, weatherCodes, selectTimeWeather, now, isLoading }) => {
     const sliderSettings = {
         dots: false,
         infinite: true,
@@ -33,7 +33,7 @@ const HourlyList: React.FC<HourlyListProps> = ({ times, temperatures, weatherCod
     };
     
     if (!temperatures || !weatherCodes) {
-        return <div>Нет данных</div>
+        return <Error>Нет данных</Error>
     }
 
     return (
@@ -45,7 +45,7 @@ const HourlyList: React.FC<HourlyListProps> = ({ times, temperatures, weatherCod
                         key={index}
                         temperature={temperatures?.[index]}
                         weatherCode={weatherCodes?.[index]}
-                        selectTime={selectTime}
+                        selectTimeWeather={selectTimeWeather}
                         index={index}
                         now={now}
                         isLoading={isLoading}

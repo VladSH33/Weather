@@ -22,23 +22,20 @@ export interface Coordinates {
     pr: string;   // в [стране]
     da: string;   // [стране]
   }
-  
-  // Основная информация о городе
-  export interface City {
-    id: string;             // Уникальный идентификатор
-    type: 'city';           // Тип (в данном случае всегда 'city')
-    code: string;           // Код города
-    name: string;           // Название города
-    country_code: string;  // Код страны
-    country_name: string;  // Название страны
-    state_code: string | null; // Код штата (если есть)
-    coordinates: Coordinates; // Координаты города
-    index_strings: string[]; // Индексы для поиска
-    weight: number;         // Вес города
-    cases: CityCases;       // Склонения для города
-    country_cases: CountryCases; // Склонения для страны
-    main_airport_name: string | null; // Основное название аэропорта (может быть null)
+    export interface City {
+    id: string;
+    type: 'city';
+    code: string;
+    name: string;
+    country_code: string;
+    country_name: string;
+    state_code: string | null;
+    coordinates: Coordinates;
+    index_strings: string[];
+    weight: number;
+    cases: CityCases;
+    country_cases: CountryCases;
+    main_airport_name: string | null;
   }
-  
-  // Ответ от API с данными о городах
+
   export type CoordinatesResponse = City[];

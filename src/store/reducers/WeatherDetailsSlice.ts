@@ -7,7 +7,6 @@ interface WeatherDetailsState {
     isLoading: boolean;
     error: string;
 
-
     selectedUnity: string;
     selectedTime: number | null;
     isCity: string,

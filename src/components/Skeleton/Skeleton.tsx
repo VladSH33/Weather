@@ -1,5 +1,4 @@
 import React from 'react';
-import { Wrapper } from '../HourlyList/HourlyList.style';
 import { Box } from './Skeleton.style';
 
 type SkeletonProps = {
@@ -10,15 +9,14 @@ type SkeletonProps = {
 }
 
 const Skeleton: React.FC<SkeletonProps> = ({ width, height, borderRadius, quantity }) => {
+  const skeletonItems = Array.from({ length: quantity ?? 1 });
 
-  const componentsArray = Array.from({ length: quantity ?? 1 });
   return (
     <>
-          {componentsArray.map((_, index) => (
+      {skeletonItems.map((_, index) => (
         <Box $width={width} $height={height} $borderRadius={borderRadius} key={index}/>
       ))}
     </>
-
   );
 };
 

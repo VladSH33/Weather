@@ -2,12 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-@font-face {
+  @font-face {
     font-family: 'MyCustomFont';
     src: url('${process.env.PUBLIC_URL}/fonts/HelveticaNeue-Medium.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-}
+  }
 
   html {
     font-size: 12px;
@@ -24,8 +24,6 @@ export const GlobalStyles = createGlobalStyle`
       font-size: 4px;
     }
   }
-
-
 
   body {
     margin: 0;

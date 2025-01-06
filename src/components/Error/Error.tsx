@@ -2,12 +2,12 @@ import React from 'react';
 import { ErrorText } from './Error.style';
 
 type ErrorProp ={
-    error: string;
+    children: string;
 }
 
-const Error: React.FC<ErrorProp> = ({ error }) => {
+const Error: React.FC<ErrorProp> = ({children}) => {
     return (
-        <ErrorText>{error}</ErrorText>
+        <ErrorText>{children}</ErrorText>
     );
 };
 

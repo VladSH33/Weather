@@ -34,9 +34,4 @@ export const Direction = styled.div`
     font-size: clamp(8px, 2vw, 2.5rem);
     color: rgba(7, 42, 65, 0.8);
     font-weight: 600;
-
-    img {
-        width: clamp(12px, 3vw, 4rem);
-        height: clamp(12px, 3vw, 4rem);
-    }
 `;

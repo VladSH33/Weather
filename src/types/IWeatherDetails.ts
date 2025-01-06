@@ -23,7 +23,6 @@ export interface HourlyUnits {
   wind_speed_180m: string;
   weather_code: string;
 }
-
 export interface HourlyData {
   time: string[];
   temperature_2m: number[];
@@ -35,13 +34,11 @@ export interface HourlyData {
   wind_speed_180m: number[];
   weather_code: number[];
 }
-
 export interface DailyUnits {
   time: string;
   sunrise: string;
   sunset: string;
 }
-
 export interface DailyData {
   time: string[];
   sunrise: string[];
